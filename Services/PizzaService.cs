@@ -16,10 +16,28 @@ public class PizzaService
         _context = context;
     }
 
-    [HttpGet]
+    // GET ALL PIZZAS
     public async Task<List<Pizza>> GetAllAsync()
     {
         return await _context.Pizzas.ToListAsync();
+    }
+
+    // GET PIZZA BY ID
+    public async Task<Pizza> GetById(int id)
+    {
+        var pizza = await _context.Pizzas.FindAsync(id);
+        if (pizza == null)
+        {
+            throw new KeyNotFoundException($"A pizza with the ID {id} was not found.");
+        }
+        return pizza;
+    }
+
+    // CREATE A NEW PIZZA
+    public async Task CreatePizza(Pizza pizza)
+    {
+        _context.Pizzas.Add(pizza);
+        await _context.SaveChangesAsync();
     }
 
 

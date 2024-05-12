@@ -27,7 +27,7 @@ public class PizzaController : ControllerBase
             if (pizzas == null || pizzas.Count == 0)
             {
                 // Retorna No Content (204) se não houver dados
-                return StatusCode(200, "Não há Pizzas cadastradas!");
+                return StatusCode(200, "There are no pizzas!");
             }
             return pizzas;
         }
@@ -36,6 +36,28 @@ public class PizzaController : ControllerBase
             // Retorna Internal Server Error (500) se ocorrer algum erro
             return StatusCode(500, "An error occurred while retrieving the data.");
         }
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Pizza>> Get(int id)
+    {
+        var pizza = await _pizzaService.GetById(id);
+        if (pizza == null)
+        {
+            return NotFound();
+        }
+        return pizza;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody]Pizza pizza)
+    {
+        if(!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        await _pizzaService.CreatePizza(pizza);
+        return CreatedAtAction(nameof(Get), new {id = pizza.Id}, pizza);
     }
 
     // // GET by Id action
