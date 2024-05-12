@@ -8,6 +8,15 @@ public class ApplicationDbContext : DbContext
     {
 
     }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Client>()
+            .HasOne(c => c.Address)
+            .WithOne(e => e.Client)
+            .HasForeignKey<Client>(c => c.AddressId);
+        }
     public DbSet<Pizza> Pizzas {get; set; }
+    public DbSet<Client> Clients {get; set; }
+    public DbSet<Address> Addresses {get; set; }
 }
 }
