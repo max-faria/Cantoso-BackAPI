@@ -53,7 +53,10 @@ public class UserController: ControllerBase
             return Unauthorized(new { message = "Email or password invalid." });
         }
 
-        return Ok(new { message = "Success!" });
+        var user = await _userService.GetUserByEmail(loginModel.Email);
+        var token = _userService.GenerateJwtToken(user);
+
+        return Ok(new { token });
     }
 
 }
