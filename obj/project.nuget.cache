@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ih39OuUK/HHMhVfhwHdltprf+MAL7qbTDE29n9baXC56XAR44sHWuznHWdYZuFrsE0w0MyO8/pzBoHbTADyxsA==",
+  "dgSpecHash": "/VosnmCDZmsqmXfNUXLAkEPiS5WPPxM977oX8Oq8zwGiI9ZRNKaIWDNwzbTjx4wjBWJ2KEZNdkTTC6lRrhRSCg==",
   "success": true,
   "projectFilePath": "/Users/maxfaria/Documents/Projects/ContosoPizza/ContosoPizza.csproj",
   "expectedPackageFiles": [
+    "/Users/maxfaria/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/maxfaria/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/maxfaria/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/maxfaria/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
